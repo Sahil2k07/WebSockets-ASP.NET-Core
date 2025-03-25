@@ -5,13 +5,13 @@ using websocket_server.core.interfaces;
 namespace websocket_server.api.controllers;
 
 [ApiController]
-[Route("/api/chat/")]
+[Route("/api/chat")]
 public class ChatController(IChatService chatService) : Controller
 {
     private readonly IChatService _chatService = chatService;
 
-    [HttpGet("user")]
-    public async Task OneToOneMessage([FromQuery] int userID, int receiverID)
+    [HttpGet]
+    public async Task ChatMessage([FromQuery] int userID, int receiverID)
     {
         if (HttpContext.WebSockets.IsWebSocketRequest)
         {

@@ -9,4 +9,10 @@ public interface IWebSocketService
     void TerminateConnection(int userID);
 
     WebSocket? GetReceiverConnection(int userID);
+
+    void RegisterGroupSession(int groupID, WebSocket webSocket);
+
+    void TerminateGroupSession(int groupID, WebSocket webSocket);
+
+    HashSet<WebSocket> GetGroupSessions(int groupID);
 }
